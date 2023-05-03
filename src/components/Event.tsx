@@ -1,7 +1,6 @@
 import {IProps} from "@/interfaces/props.interface";
 import {memo} from "react";
 
-
 function Event({event}: IProps) {
     const {name, start, end, ticketsSold} = event;
 

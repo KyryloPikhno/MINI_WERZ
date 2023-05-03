@@ -2,26 +2,148 @@
 @tailwind components;
 @tailwind utilities;
 
-/*:root {*/
-/*  --foreground-rgb: 0, 0, 0;*/
-/*  --background-start-rgb: 214, 219, 220;*/
-/*  --background-end-rgb: 255, 255, 255;*/
-/*}*/
-
-/*@media (prefers-color-scheme: dark) {*/
-/*  :root {*/
-/*    --foreground-rgb: 255, 255, 255;*/
-/*    --background-start-rgb: 0, 0, 0;*/
-/*    --background-end-rgb: 0, 0, 0;*/
-/*  }*/
-/*}*/
+:root {
+  --color:#1B1D22;
+  --background:#FFFFFF;
+  --border:#A4A5A7;
+}
 
 body {
-  /*color: rgb(var(--foreground-rgb));*/
-  /*background: linear-gradient(*/
-  /*    to bottom,*/
-  /*    transparent,*/
-  /*    !*rgb(var(--background-end-rgb))*!*/
-  /*  )*/
-  /*  rgb(var(--background-start-rgb));*/
+  color: var(--color);
+  background:var(--background);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+.container {
+
+}
+
+.username-label {
+  width: 67px;
+  height: 14px;
+  position: absolute;
+  left: 239px;
+  top: 337px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #1B1D22;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.password-label {
+  width: 28px;
+  height: 14px;
+  position: absolute;
+  left: 239px;
+  top: 424px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #1B1D22;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.username-field ,.password-field{
+  width: 370px;
+  height: 40px;
+  box-sizing: border-box;
+  position: absolute;
+  left: 239px;
+  top: 359px;
+  background: var(--background);
+  border: 1px solid var(--border);
+}
+
+.password-field{
+  top: 446px;
+}
+
+.login-button,.disabled-login-button{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 21px 24px;
+  gap: 10px;
+  position: absolute;
+  width: 241px;
+  height: 48px;
+  left: 239px;
+  top: 547px;
+  background: #1B1D22;
+  color:#FFFFFF;
+  transition: .6s;
+}
+
+.disabled-login-button{
+  background: var(--border);
+  transition: .6s;
+}
+
+.login-header{
+  position: absolute;
+  width: 62px;
+  height: 24px;
+  left: 239px;
+  top: 273px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #1B1D22;
+}
+
+.info{
+  position: absolute;
+  width: 209px;
+  height: 14px;
+  right: 56px;
+  bottom: 40px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 100% */
+  display: flex;
+  align-items: center;
+  text-align: right;
+  color: #A4A5A7;
+}
+
+.ellipse-username, .ellipse-password{
+  width: 4px;
+  height: 4px;
+  position: absolute;
+  top:342px;
+  left: 310px;
+  border-radius: 50px;
+  background: #FF1C5E;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.ellipse-password{
+top: 429px;
+  left:308px; ;
+}
+
+

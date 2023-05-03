@@ -15,7 +15,7 @@ function Login() {
 
     const router = useRouter();
 
-    const {register, watch, handleSubmit, formState: {errors,isValid}} = useForm<ILoginForm>({
+    const {register, watch, handleSubmit, formState: {errors, isValid}} = useForm<ILoginForm>({
         resolver: joiResolver(loginValidator),
         mode: 'onChange'
     });
@@ -45,20 +45,26 @@ function Login() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" placeholder="identifier" {...register("identifier")}/>
-            {errors.identifier && <p className="error">{errors.identifier.message}</p>}
+        <div>
+            <h1 className="login-header">Login</h1>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <label className="username-label">Username</label>
+                <div className="ellipse-username"></div>
+                <input className="username-field" type="text" placeholder="identifier" {...register("identifier")}/>
+                {errors.identifier && <p className="error">{errors.identifier.message}</p>}
 
-            <input type="password" placeholder="password" {...register("password")}/>
-            {errors.password && <p className="error">{errors.password.message}</p>}
+                <label className="password-label">Password</label>
+                <div className="ellipse-password"></div>
+                <input className="password-field" type="password" placeholder="password" {...register("password")}/>
+                {errors.password && <p className="error">{errors.password.message}</p>}
 
-            {authError && <p className="error">{authError}</p>}
-            {error && <p>{error.message}</p>}
+                {authError && <p className="error">{authError}</p>}
+                {error && <p>{error.message}</p>}
 
-            <button type="submit" disabled={loading||!isValid}>
-                {loading ? 'Entering...' : 'Enter'}
-            </button>
-        </form>
+                <button className={!isValid ? "disabled-login-button":"login-button"} type="submit" disabled={loading || !isValid}>Log in</button>
+            </form>
+            <p className="info">© WERZ 2023, all rights reserved</p>
+        </div>
     );
 }
 
