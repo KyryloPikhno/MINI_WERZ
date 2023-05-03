@@ -1,9 +1,19 @@
-import { useQuery } from '@apollo/client';
+import {useQuery} from '@apollo/client';
 import {EVENTS_QUERY} from "@/queries/event-query";
 import {IEvent} from "@/interfaces/event.interface";
+import {useRouter} from "next/router";
+import {MemoizedEvent} from "@/components/Event";
 
 function Events() {
-    const {loading, error, data} = useQuery(EVENTS_QUERY);
+    const router = useRouter();
+
+    const name = router.query.name || "";
+    const skip = parseInt(router.query.skip as string) || 0;
+    const take = parseInt(router.query.take as string) || 10;
+
+    const {loading, error, data} = useQuery(EVENTS_QUERY, {
+        variables: {name, skip, take},
+    });
 
     if (loading) {
         return <div>Loading...</div>;
@@ -16,14 +26,7 @@ function Events() {
 
     return (
         <div>
-            {data?.events && data.events.map((event: IEvent, index: number) => (
-                <div key={index}>
-                    <h2>{event.name}</h2>
-                    <p>Start time: {event.start}</p>
-                    <p>End time: {event.end}</p>
-                    <p>Tickets sold: {event.ticketsSold}</p>
-                </div>
-            ))}
+            {data?.events && data.events.map((event: IEvent, index: number) => <MemoizedEvent key={index} event={event}/>)}
         </div>
     );
 }

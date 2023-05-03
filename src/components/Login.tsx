@@ -1,21 +1,31 @@
 import {ILogin, ILoginForm} from "@/interfaces/login.interface";
 import {loginValidator} from "@/validators/login.validator";
-import {joiResolver} from "@hookform/resolvers/joi";
 import {LOGIN_MUTATION} from "@/queries/login-query";
+import {joiResolver} from "@hookform/resolvers/joi";
+import React, {useEffect, useState} from "react";
 import {useMutation} from "@apollo/client";
 import {useForm} from "react-hook-form";
 import {useRouter} from "next/router";
-import React from "react";
 
 
 function Login() {
     const [login, {loading, error}] = useMutation(LOGIN_MUTATION);
+
+    const [authError, setAuthError] = useState<string | null>(null);
+
     const router = useRouter();
 
-    const {register, handleSubmit, formState: {errors}} = useForm<ILoginForm>({
+    const {register, watch, handleSubmit, formState: {errors,isValid}} = useForm<ILoginForm>({
         resolver: joiResolver(loginValidator),
         mode: 'onChange'
     });
+
+    const password = watch("password");
+    const identifier = watch("identifier");
+
+    useEffect(() => {
+        setAuthError(null);
+    }, [password, identifier]);
 
     const onSubmit: (data: ILogin) => Promise<void> = async (loginData: ILogin) => {
         try {
@@ -23,32 +33,31 @@ function Login() {
 
             const {data} = await login({variables: {identifier, password}});
 
-            localStorage.setItem('token', data.login.token);
-
-            await router.push('/events-page');
+            if (data.login.token) {
+                localStorage.setItem('token', data.login.token);
+                await router.push('/events-page');
+            } else {
+                setAuthError("Wrong login or password");
+            }
         } catch (error) {
             console.error(error);
-            // @ts-ignore
-            if (error || error.graphQLErrors.some((e) => e.extensions.code === 'UNAUTHENTICATED')) {
-                await router.push('/login-page');
-            } else {
-                console.error(error);
-            }
         }
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <input type="text" placeholder="identifier" {...register("identifier")}/>
-            {errors.identifier && <p className="error">First Name is required.</p>}
+            {errors.identifier && <p className="error">{errors.identifier.message}</p>}
 
             <input type="password" placeholder="password" {...register("password")}/>
-            {errors.password && <p className="error">First Name is required.</p>}
+            {errors.password && <p className="error">{errors.password.message}</p>}
 
-            <button type="submit" disabled={loading}>
+            {authError && <p className="error">{authError}</p>}
+            {error && <p>{error.message}</p>}
+
+            <button type="submit" disabled={loading||!isValid}>
                 {loading ? 'Entering...' : 'Enter'}
             </button>
-            {error && <p>{error.message}</p>}
         </form>
     );
 }
