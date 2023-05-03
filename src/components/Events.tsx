@@ -3,6 +3,7 @@ import {EVENTS_QUERY} from "@/queries/event-query";
 import {IEvent} from "@/interfaces/event.interface";
 import {useRouter} from "next/router";
 import {MemoizedEvent} from "@/components/Event";
+import {SearchForm} from "@/components/SearchForm";
 
 function Events() {
     const router = useRouter();
@@ -26,6 +27,7 @@ function Events() {
 
     return (
         <div>
+            <SearchForm/>
             {data?.events && data.events.map((event: IEvent, index: number) => <MemoizedEvent key={index} event={event}/>)}
         </div>
     );

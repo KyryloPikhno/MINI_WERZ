@@ -110,7 +110,7 @@ body {
   color: #1B1D22;
 }
 
-.info{
+.info {
   position: absolute;
   width: 209px;
   height: 14px;
@@ -121,18 +121,17 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
-  /* identical to box height, or 100% */
   display: flex;
   align-items: center;
   text-align: right;
   color: #A4A5A7;
 }
 
-.ellipse-username, .ellipse-password{
+.ellipse-username, .ellipse-password {
   width: 4px;
   height: 4px;
   position: absolute;
-  top:342px;
+  top: 342px;
   left: 310px;
   border-radius: 50px;
   background: #FF1C5E;
@@ -141,9 +140,103 @@ body {
   flex-grow: 0;
 }
 
-.ellipse-password{
-top: 429px;
-  left:308px; ;
+.ellipse-password {
+  top: 429px;
+  left: 308px;;
 }
 
+.error-username, .error-password{
+  font-size: 10px;
+  position: absolute;
+  left: 239px;
+  top: 400px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: red;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.error-password{
+  top: 487px;
+}
+
+.sidebar{
+  border: 1px solid black;
+  position: absolute;
+  width: 143px;
+  height: 796px;
+  left: 48px;
+  top: 16px;
+}
+
+.links{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.link{
+  width: 140px;
+  padding-left: 8px;
+  height: 14px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #1B1D22;
+}
+
+.active{
+  border-left: 2px solid red;
+}
+
+.user{
+  position: absolute;
+  width: 120px;
+  height: 14px;
+  left: 47px;
+  bottom: 9px;
+
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  /* Color/Dark-grey */
+
+  color: #1B1D22;
+}
+
+.user-later{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  left: 8px;
+  bottom: 0;
+  background: #FFFFFF;
+  border: 1px solid #1B1D22;
+}
 

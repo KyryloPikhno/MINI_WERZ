@@ -1,12 +1,13 @@
-import {SearchForm} from "@/components/SearchForm";
+import {SideBar} from "@/components/SideBar";
 import {Events} from "@/components/Events";
 
 export default function EventsPage() {
     return (
         <div>
-            <h1>EventsPage</h1>
-            <SearchForm/>
-            <Events/>
+            <SideBar/>
+            <div>
+              <Events/>
+            </div>
         </div>
     );
 };
