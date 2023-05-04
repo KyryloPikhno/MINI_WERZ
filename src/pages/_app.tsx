@@ -3,11 +3,11 @@ import {ApolloProvider} from "@apollo/client";
 import {SideBar} from "@/components/SideBar";
 import type { AppProps } from 'next/app'
 import {useRouter} from "next/router";
-import '@/styles/globals.css'
 import {useMemo} from "react";
+import '@/styles/globals.css'
+
 
 export default function App({Component, pageProps}: AppProps) {
-
     const {pathname} = useRouter();
 
     const currentRoute = useMemo(() => {

@@ -7,6 +7,7 @@ type searchForm = {
     [key: string]: string;
 };
 
+
 function SearchForm() {
     const {register, handleSubmit, formState: {errors, isValid}} = useForm<searchForm>({
         resolver: joiResolver(searchValidator),
@@ -15,7 +16,7 @@ function SearchForm() {
 
     const router = useRouter();
 
-    const onSubmit: SubmitHandler<searchForm> = async ({name}) => {
+    const onSubmit: SubmitHandler<searchForm> = ({name}) => {
         try {
             let searchObj: any = {};
 
@@ -31,7 +32,7 @@ function SearchForm() {
                 searchObj.skip = Number(router.query.skip);
             }
 
-            await router.push({
+             router.push({
                 pathname: '/events-page',
                 query: searchObj,
             });
@@ -42,7 +43,7 @@ function SearchForm() {
 
     return (
         <form className="search-form" onSubmit={handleSubmit(onSubmit)}>
-            <button type="submit" disabled={!isValid}><img src="/imgs/zoom-out.png" alt="search"/></button>
+            <button type="submit" disabled={!isValid}><img className="search" src="/imgs/zoom-out.png" alt="search"/></button>
             <input type="text" placeholder="Search" {...register("name")}/>
             {errors.name && <p className="error">{errors.name.message}</p>}
         </form>

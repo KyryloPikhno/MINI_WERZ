@@ -1,13 +1,18 @@
 import {useRouter} from "next/router";
 import Link from "next/link";
 
+
 function SideBar() {
     const router = useRouter();
+
+    // cannot get the data. Maybe I don't have the necessary permissions or access rights.
+
+    // const {loading, error, data} = useQuery(USER_QUERY);
 
     return (
         <div className="sidebar">
             <div className="logo">
-                Logo
+                <img src="/imgs/Vector.png" alt="Logo"/>
             </div>
             <div className="links">
                 <Link href="/events-page"
@@ -15,7 +20,7 @@ function SideBar() {
                 >
                     Events
                 </Link>
-                {router.pathname === "/events-page" && <div>Events list</div>}
+                {router.pathname === "/events-page" && <div className="link-link">Events list</div>}
                 <Link href="/test-page"
                       className={`link ${router.pathname === "/test-page" ? 'active-link' : ''}`}
                 >
@@ -24,7 +29,7 @@ function SideBar() {
             </div>
             <div className="user-later">U</div>
             <div className="user">
-                name surname
+                User FullName
             </div>
         </div>
     )

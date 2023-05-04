@@ -1,14 +1,14 @@
 export interface IEvent {
-    name: string
-    start: string
-    location: string
-    end: string
+    publishingStatus: string
+    grossRevenue: number
     ticketsTotal: number
     ticketsSold: number
-    iconUrl: string
     mediaUrl: string
-    grossRevenue: number
-    publishingStatus: string
+    location: string
+    iconUrl: string
+    start: string
+    name: string
+    end: string
 }
 
 

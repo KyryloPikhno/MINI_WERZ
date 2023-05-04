@@ -20,8 +20,8 @@ function Login() {
         mode: 'onChange'
     });
 
-    const password = watch("password");
     const identifier = watch("identifier");
+    const password = watch("password");
 
     useEffect(() => {
         setAuthError(null);
@@ -46,16 +46,17 @@ function Login() {
 
     return (
         <div>
+            <img className="logoWERZ" src="/imgs/Logo.png" alt="logo"/>
             <h1 className="login-header">Login</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label className="username-label">Username</label>
                 <div className="ellipse-username"></div>
-                <input className="username-field" type="text" placeholder="identifier" {...register("identifier")}/>
+                <input className="username-field" type="text" placeholder="Enter username..." {...register("identifier")}/>
                 {errors.identifier && <p className="error-username">{errors.identifier.message}</p>}
 
                 <label className="password-label">Password</label>
                 <div className="ellipse-password"></div>
-                <input className="password-field" type="password" placeholder="password" {...register("password")}/>
+                <input className="password-field" type="password" placeholder="Enter password..." {...register("password")}/>
                 {errors.password && <p className="error-password">{errors.password.message}</p>}
 
                 {authError && <p className="error">{authError}</p>}

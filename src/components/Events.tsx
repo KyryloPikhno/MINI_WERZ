@@ -1,17 +1,17 @@
 import {IEvent} from "@/interfaces/event.interface";
+import {Pagination} from "@/components/Pagination";
 import {SearchForm} from "@/components/SearchForm";
 import {EVENTS_QUERY} from "@/queries/event-query";
 import {MemoizedEvent} from "@/components/Event";
 import {useQuery} from '@apollo/client';
 import {useRouter} from "next/router";
-import {Pagination} from "@/components/Pagination";
 import {useMemo} from "react";
 
 function Events() {
     const router = useRouter();
 
     const name = useMemo(() => {
-        return parseInt(router.query.name as string) || ""
+        return router.query.name as string || ""
     }, [router.query.name]);
 
     const skip = useMemo(() => {
@@ -25,8 +25,6 @@ function Events() {
     const {loading, error, data} = useQuery(EVENTS_QUERY, {
         variables: {name, skip, take},
     });
-
-    // console.log(data);
 
     if (loading) {
         return <div>Loading...</div>;
