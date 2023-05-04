@@ -17,9 +17,23 @@ function SearchForm() {
 
     const onSubmit: SubmitHandler<searchForm> = ({name}) => {
         try {
+            let searchObj: any = {};
+
+            if (name) {
+                searchObj.name = name;
+            }
+
+            if (router.query.take) {
+                searchObj.take = Number(router.query.take);
+            }
+
+            if (router.query.skip) {
+                searchObj.skip = Number(router.query.skip);
+            }
+
             router.push({
                 pathname: '/events-page',
-                query: {name, skip: 1, take: 5},
+                query: searchObj,
             });
         } catch (error) {
             console.log(error);
@@ -27,11 +41,10 @@ function SearchForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input type="text" placeholder="name" {...register("name")}/>
-            {errors.name && <p className="error">{errors.name.message}</p>}
-
+        <form className="search-form" onSubmit={handleSubmit(onSubmit)}>
             <button type="submit" disabled={!isValid}>Enter</button>
+            <input type="text" placeholder="Search" {...register("name")}/>
+            {errors.name && <p className="error">{errors.name.message}</p>}
         </form>
     );
 }

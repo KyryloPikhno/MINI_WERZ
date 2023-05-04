@@ -198,7 +198,7 @@ body {
   color: #1B1D22;
 }
 
-.active{
+.active-link{
   border-left: 2px solid red;
 }
 
@@ -208,20 +208,15 @@ body {
   height: 14px;
   left: 47px;
   bottom: 9px;
-
   font-family: 'Helvetica Neue', serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
   /* identical to box height, or 100% */
-
   display: flex;
   align-items: center;
   text-align: right;
-
-  /* Color/Dark-grey */
-
   color: #1B1D22;
 }
 
@@ -240,3 +235,243 @@ body {
   border: 1px solid #1B1D22;
 }
 
+.table{
+  position: absolute;
+  left: 290px;
+  top: 135px;
+}
+
+.head{
+  width: 1207px;
+  height: 46px;
+}
+
+.th-event{
+  width: 224px;
+  margin: 0 4px;
+}
+
+.th-date {
+  width: 232px;
+  padding-right: 10px;
+  margin: 0 4px;
+}
+
+.td-event{
+  display: flex;
+  gap: 8px;
+}
+
+.th-venue{
+  width: 112px;
+  margin: 0 4px;
+}
+
+.th-sold{
+  width: 112px;
+  margin: 0 4px;
+}
+
+.th-cross{
+  width: 112px;
+  margin: 0 4px;
+}
+
+.th-status{
+  width: 112px;
+  margin: 0 4px;
+}
+
+.th-action{
+  width: 105px;
+  margin: 0 4px;
+}
+
+
+.td-event div{
+  width: 113px;
+  display: flex;
+  align-items: center;
+}
+
+th {
+  text-align: left;
+  width: 104px;
+  height: 44px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  color: #A4A5A7;
+  padding-right: 10px;
+  position: relative;
+}
+
+.triangle {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid #A4A5A7;
+  border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-left: 3px solid transparent;
+  vertical-align: bottom;
+}
+
+.iconUrl{
+  width: 113px;
+  height: 64px;
+  object-fit: cover;
+  /*background: url(.jpg);*/
+  border: 1px solid #1B1D22;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+td {
+  margin-bottom: 12px;
+}
+
+.search-form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  gap: 8px;
+  position: absolute;
+  width: 70px;
+  height: 16px;
+  left: 289px;
+  top: 96px;
+}
+
+.events-header{
+  position: absolute;
+  width: 157px;
+  height: 32px;
+  left: 286px;
+  top: 20px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  color: #1B1D22;
+}
+
+.active,.draft,.past {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  gap: 10px;
+  width: 73px;
+  height: 30px;
+  background: #FFFFFF;
+  border: 1px solid #38FF64;
+  color: #38FF64;
+}
+
+.draft{
+  border: 1px solid #FF550C;
+  color: #FF550C;
+}
+
+.past{
+  border: 1px solid #3B43FF;
+  color: #3B43FF;
+}
+
+.action{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 45px;
+  width: 3px;
+  height: 3px;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+
+.pagination{
+  width: 100vw;
+  height: 64px;
+  background: var(--background);
+  position: fixed;
+  bottom: 0;
+}
+
+.rows{
+  position: fixed;
+  width: 222px;
+  height: 14px;
+  left: 271px;
+  bottom: 25px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  color: #1B1D22;
+}
+
+.prev,.next{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  right: 101px;
+  bottom: 16px;
+  border: 1px solid #A4A5A7;
+}
+
+.next{
+  right: 61px;
+}
+
+.showing{
+  position: fixed;
+  width: 100px;
+  height: 14px;
+  right: 197px;
+  bottom: 26px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  color: #1B1D22;
+}
+
+.page{
+  position: absolute;
+  width: 8px;
+  height: 14px;
+  bottom: 26px;
+  right: 157px;
+  font-family: 'Helvetica Neue', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 100% */
+
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  color: #A4A5A7;
+}
