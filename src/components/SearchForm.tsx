@@ -15,7 +15,7 @@ function SearchForm() {
 
     const router = useRouter();
 
-    const onSubmit: SubmitHandler<searchForm> = ({name}) => {
+    const onSubmit: SubmitHandler<searchForm> = async ({name}) => {
         try {
             let searchObj: any = {};
 
@@ -31,7 +31,7 @@ function SearchForm() {
                 searchObj.skip = Number(router.query.skip);
             }
 
-            router.push({
+            await router.push({
                 pathname: '/events-page',
                 query: searchObj,
             });
@@ -42,7 +42,7 @@ function SearchForm() {
 
     return (
         <form className="search-form" onSubmit={handleSubmit(onSubmit)}>
-            <button type="submit" disabled={!isValid}>Enter</button>
+            <button type="submit" disabled={!isValid}><img src="/imgs/zoom-out.png" alt="search"/></button>
             <input type="text" placeholder="Search" {...register("name")}/>
             {errors.name && <p className="error">{errors.name.message}</p>}
         </form>

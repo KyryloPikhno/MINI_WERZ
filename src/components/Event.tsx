@@ -24,7 +24,7 @@ function Event({event}: IProps) {
         <tbody className="tbody">
         <tr>
             <td className="td-event">
-                <div>{iconUrl && <img className="iconUrl" src={iconUrl} alt={iconUrl}/>}</div>
+                <div>{iconUrl ? <img className="iconUrl" src={iconUrl} alt={iconUrl}/> : <img className="iconUrlVector" src="/imgs/Vectorimg.png" alt="Vectorimg"/>}</div>
                 <div>{name}</div>
             </td>
             <td>

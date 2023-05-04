@@ -262,6 +262,11 @@ body {
   gap: 8px;
 }
 
+td{
+  overflow: scroll;
+  height: 65px;
+}
+
 .th-venue{
   width: 112px;
   margin: 0 4px;
@@ -320,16 +325,20 @@ th {
   vertical-align: bottom;
 }
 
-.iconUrl{
+.iconUrl,.iconUrlVector{
   width: 113px;
   height: 64px;
   object-fit: cover;
-  /*background: url(.jpg);*/
   border: 1px solid #1B1D22;
   flex: none;
   order: 0;
   align-self: stretch;
   flex-grow: 1;
+}
+
+.iconUrlVector{
+  object-fit:none;
+  background: #F4F4F4;
 }
 
 td {
@@ -441,7 +450,7 @@ td {
 
 .showing{
   position: fixed;
-  width: 100px;
+  width: 160px;
   height: 14px;
   right: 197px;
   bottom: 26px;
