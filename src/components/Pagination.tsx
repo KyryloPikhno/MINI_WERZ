@@ -91,7 +91,6 @@ const Pagination:FC = () => {
         }
     }, [router]);
 
-
     useHotkeys('z', () => handlePrevious());
     useHotkeys('x', () => handleNext());
 

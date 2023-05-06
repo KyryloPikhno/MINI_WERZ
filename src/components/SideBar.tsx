@@ -7,7 +7,8 @@ import Link from "next/link";
 const SideBar:FC = () => {
     const router: NextRouter = useRouter();
 
-    // cannot get the data. Maybe I don't have the necessary permissions or access rights.
+    // cannot get the user data.
+    // Maybe I don't have the necessary permissions or access rights.
     // const {loading, error, data} = useQuery(USER_QUERY);
 
     const returner = useCallbackOne(() => {
