@@ -51,8 +51,7 @@ function Events() {
                     <th className="th-action">Action</th>
                 </tr>
                 </thead>
-                {data?.events && data.events.map((event: IEvent, index: number) => <MemoizedEvent key={index}
-                                                                                                  event={event}/>)}
+                {data?.events && data.events.map((event: IEvent, index: number) => <MemoizedEvent key={index} event={event}/>)}
             </table>
             <Pagination/>
         </div>

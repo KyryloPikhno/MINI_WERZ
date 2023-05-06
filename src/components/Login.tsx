@@ -1,8 +1,8 @@
 import {ILogin, ILoginForm} from "@/interfaces/login.interface";
 import {loginValidator} from "@/validators/login.validator";
+import {useCallback, useEffect, useState} from "react";
 import {LOGIN_MUTATION} from "@/queries/login-query";
 import {joiResolver} from "@hookform/resolvers/joi";
-import React, {useEffect, useState} from "react";
 import {useMutation} from "@apollo/client";
 import {useForm} from "react-hook-form";
 import {useRouter} from "next/router";
@@ -27,22 +27,21 @@ function Login() {
         setAuthError(null);
     }, [password, identifier]);
 
-    const onSubmit: (data: ILogin) => Promise<void> = async (loginData: ILogin) => {
+    const onSubmit: (data: ILogin) => Promise<void> = useCallback(async (loginData: ILogin) => {
         try {
             const {identifier, password} = loginData;
-
             const {data} = await login({variables: {identifier, password}});
 
             if (data.login.token) {
                 localStorage.setItem('token', data.login.token);
                 await router.push('/events-page');
             } else {
-                setAuthError("Wrong login or password");
+                setAuthError("Wrong username or password");
             }
         } catch (error) {
             console.error(error);
         }
-    };
+    }, [login, router]);
 
     return (
         <div>

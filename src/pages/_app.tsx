@@ -1,6 +1,6 @@
+import {MemoizedSideBar} from "@/components/SideBar";
 import {client} from "@/configs/apollo-client";
 import {ApolloProvider} from "@apollo/client";
-import {SideBar} from "@/components/SideBar";
 import type { AppProps } from 'next/app'
 import {useRouter} from "next/router";
 import {useMemo} from "react";
@@ -16,7 +16,7 @@ export default function App({Component, pageProps}: AppProps) {
 
     return (
         <ApolloProvider client={client}>
-            {!currentRoute && <SideBar/>}
+            {!currentRoute && <MemoizedSideBar/>}
             <Component {...pageProps} />
         </ApolloProvider>
     )

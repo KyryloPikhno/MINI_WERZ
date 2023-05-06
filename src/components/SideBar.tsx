@@ -1,5 +1,6 @@
 import {useRouter} from "next/router";
 import Link from "next/link";
+import {memo} from "react";
 
 
 function SideBar() {
@@ -35,4 +36,4 @@ function SideBar() {
     )
 }
 
-export {SideBar};
+export const MemoizedSideBar = memo(SideBar);

@@ -2,11 +2,17 @@ import {searchValidator} from "@/validators/search.validator";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {useRouter} from "next/router";
+import {useCallback} from "react";
 
 type searchForm = {
     [key: string]: string;
 };
 
+type SearchObject = {
+    name?: string;
+    take?: number;
+    skip?: number;
+};
 
 function SearchForm() {
     const {register, handleSubmit, formState: {errors, isValid}} = useForm<searchForm>({
@@ -16,9 +22,9 @@ function SearchForm() {
 
     const router = useRouter();
 
-    const onSubmit: SubmitHandler<searchForm> = ({name}) => {
+    const onSubmit: SubmitHandler<searchForm> = useCallback(({name}) => {
         try {
-            let searchObj: any = {};
+            let searchObj: SearchObject = {};
 
             if (name) {
                 searchObj.name = name;
@@ -32,14 +38,14 @@ function SearchForm() {
                 searchObj.skip = Number(router.query.skip);
             }
 
-             router.push({
+            router.push({
                 pathname: '/events-page',
                 query: searchObj,
             });
         } catch (error) {
             console.log(error);
         }
-    };
+    }, [router]);
 
     return (
         <form className="search-form" onSubmit={handleSubmit(onSubmit)}>
@@ -51,3 +57,4 @@ function SearchForm() {
 }
 
 export {SearchForm};
+

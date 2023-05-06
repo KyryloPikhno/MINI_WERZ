@@ -3,17 +3,7 @@ import moment from 'moment';
 import {memo} from "react";
 
 function Event({event}: IProps) {
-    const {
-        iconUrl,
-        grossRevenue,
-        publishingStatus,
-        name,
-        start,
-        end,
-        ticketsSold,
-        location,
-        ticketsTotal
-    } = event;
+    const {iconUrl, grossRevenue, publishingStatus, name, start, end, ticketsSold, location, ticketsTotal} = event;
 
     const format = 'ddd, DD MMM YYYY, h:mm A';
 
@@ -24,7 +14,11 @@ function Event({event}: IProps) {
         <tbody className="tbody">
         <tr>
             <td className="td-event">
-                <div>{iconUrl ? <img className="iconUrl" src={iconUrl} alt={iconUrl}/> : <img className="iconUrlVector" src="/imgs/Vectorimg.png" alt="Vectorimg"/>}</div>
+                <div>
+                    {iconUrl ? <img className="iconUrl" src={iconUrl} alt={iconUrl}/>
+                    :
+                    <img className="iconUrlVector" src="/imgs/Vectorimg.png" alt="Vectorimg"/>}
+                </div>
                 <div>{name}</div>
             </td>
             <td>
