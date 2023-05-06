@@ -1,8 +1,9 @@
 import {searchValidator} from "@/validators/search.validator";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
-import {useRouter} from "next/router";
-import {useCallback} from "react";
+import {NextRouter, useRouter} from "next/router";
+import {useCallbackOne} from "use-memo-one";
+import {FC} from "react";
 
 type searchForm = {
     [key: string]: string;
@@ -14,15 +15,15 @@ type SearchObject = {
     skip?: number;
 };
 
-function SearchForm() {
+const SearchForm:FC = () => {
     const {register, handleSubmit, formState: {errors, isValid}} = useForm<searchForm>({
         resolver: joiResolver(searchValidator),
         mode: 'onChange'
     });
 
-    const router = useRouter();
+    const router: NextRouter = useRouter();
 
-    const onSubmit: SubmitHandler<searchForm> = useCallback(({name}) => {
+    const onSubmit: SubmitHandler<searchForm> = useCallbackOne(({name}) => {
         try {
             let searchObj: SearchObject = {};
 
@@ -49,9 +50,11 @@ function SearchForm() {
 
     return (
         <form className="search-form" onSubmit={handleSubmit(onSubmit)}>
-            <button type="submit" disabled={!isValid}><img className="search" src="/imgs/zoom-out.png" alt="search"/></button>
+            <button type="submit" disabled={!isValid}>
+                &#128269;
+            </button>
             <input type="text" placeholder="Search" {...register("name")}/>
-            {errors.name && <p className="error">{errors.name.message}</p>}
+            {errors.name && <p className="error-search">{errors.name.message}</p>}
         </form>
     );
 }

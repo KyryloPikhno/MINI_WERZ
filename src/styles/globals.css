@@ -149,7 +149,7 @@ body {
   left: 308px;;
 }
 
-.error-username, .error-password,.error{
+.error-username, .error-password,.error,.error-search{
   font-size: 10px;
   position: absolute;
   left: 239px;
@@ -175,6 +175,12 @@ body {
   width: 400px;
 }
 
+.error-search {
+  top: 20px;
+  left: 0;
+  width: 400px;
+}
+
 .logoWERZ{
   position: absolute;
   width: 84px;
@@ -184,7 +190,7 @@ body {
 }
 
 .sidebar{
-  position: absolute;
+  position: fixed;
   width: 143px;
   height: 796px;
   left: 48px;
@@ -242,8 +248,8 @@ body {
   border-radius: 1000px;
   left: 6px;
   top:  6px;
+  cursor: pointer;
 }
-
 
 
 .user{
@@ -538,4 +544,29 @@ td {
   align-items: center;
   text-align: right;
   color: #A4A5A7;
+}
+
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:150px ;
+  width: 100%;
+}
+
+.loader{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border:5px dashed #82C6DD;
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

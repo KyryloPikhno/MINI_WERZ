@@ -2,23 +2,25 @@ import {IEvent} from "@/interfaces/event.interface";
 import {Pagination} from "@/components/Pagination";
 import {SearchForm} from "@/components/SearchForm";
 import {EVENTS_QUERY} from "@/queries/event-query";
+import {NextRouter, useRouter} from "next/router";
 import {MemoizedEvent} from "@/components/Event";
+import {useMemoOne} from "use-memo-one";
 import {useQuery} from '@apollo/client';
-import {useRouter} from "next/router";
-import {useMemo} from "react";
+import {FC} from "react";
 
-function Events() {
-    const router = useRouter();
 
-    const name = useMemo(() => {
+const Events:FC = () => {
+    const router: NextRouter = useRouter();
+
+    const name: string = useMemoOne(() => {
         return router.query.name as string || ""
     }, [router.query.name]);
 
-    const skip = useMemo(() => {
+    const skip: number = useMemoOne(() => {
         return parseInt(router.query.skip as string) || 0
     }, [router.query.skip]);
 
-    const take = useMemo(() => {
+    const take: number = useMemoOne(() => {
         return parseInt(router.query.take as string) || 9
     }, [router.query.take]);
 
@@ -27,12 +29,12 @@ function Events() {
     });
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="box"><div className="loader"></div></div>;
     }
 
     if (error) {
         console.error(error);
-        return <div>Error!</div>;
+        return <div className="box">Error!</div>;
     }
 
     return (

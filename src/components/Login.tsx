@@ -1,33 +1,34 @@
 import {ILogin, ILoginForm} from "@/interfaces/login.interface";
 import {loginValidator} from "@/validators/login.validator";
-import {useCallback, useEffect, useState} from "react";
 import {LOGIN_MUTATION} from "@/queries/login-query";
 import {joiResolver} from "@hookform/resolvers/joi";
+import {NextRouter, useRouter} from "next/router";
+import {FC, useEffect, useState} from "react";
+import {useCallbackOne} from "use-memo-one";
 import {useMutation} from "@apollo/client";
 import {useForm} from "react-hook-form";
-import {useRouter} from "next/router";
 
 
-function Login() {
+const Login:FC = () => {
     const [login, {loading, error}] = useMutation(LOGIN_MUTATION);
 
     const [authError, setAuthError] = useState<string | null>(null);
 
-    const router = useRouter();
+    const router: NextRouter = useRouter();
 
     const {register, watch, handleSubmit, formState: {errors, isValid}} = useForm<ILoginForm>({
         resolver: joiResolver(loginValidator),
         mode: 'onChange'
     });
 
-    const identifier = watch("identifier");
-    const password = watch("password");
+    const identifier: string = watch("identifier");
+    const password: string = watch("password");
 
     useEffect(() => {
         setAuthError(null);
     }, [password, identifier]);
 
-    const onSubmit: (data: ILogin) => Promise<void> = useCallback(async (loginData: ILogin) => {
+    const onSubmit: (data: ILogin) => Promise<void> = useCallbackOne(async (loginData: ILogin) => {
         try {
             const {identifier, password} = loginData;
             const {data} = await login({variables: {identifier, password}});
@@ -61,7 +62,7 @@ function Login() {
                 {authError && <p className="error">{authError}</p>}
                 {error && <p>{error.message}</p>}
 
-                <button className={!isValid ? "disabled-login-button":"login-button"} type="submit" disabled={loading || !isValid}>
+                <button className={!isValid ? "disabled-login-button" : "login-button"} type="submit" disabled={loading || !isValid}>
                     {loading? "Log in..." : "Log in"}
                 </button>
             </form>

@@ -1,14 +1,16 @@
 import {IProps} from "@/interfaces/props.interface";
-import moment from 'moment';
-import {memo} from "react";
+import {FC, memo} from "react";
+import moment from 'moment'
 
-function Event({event}: IProps) {
+
+
+const Event:FC<IProps> = ({event}) => {
     const {iconUrl, grossRevenue, publishingStatus, name, start, end, ticketsSold, location, ticketsTotal} = event;
 
-    const format = 'ddd, DD MMM YYYY, h:mm A';
+    const format: string = 'ddd, DD MMM YYYY, h:mm A';
 
-    const formattedDateStart = moment(start).format(format);
-    const formattedDateEnd = moment(end).format(format);
+    const formattedDateStart: string = moment(start).format(format);
+    const formattedDateEnd: string = moment(end).format(format);
 
     return (
         <tbody className="tbody">

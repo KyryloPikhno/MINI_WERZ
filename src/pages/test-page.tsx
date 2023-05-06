@@ -1,7 +1,10 @@
 export default function TestPage() {
 
     return (
-        <h1>Test page</h1>
+        <div
+            className="box">
+            <h1>Test page</h1>
+        </div>
     );
 };
 
