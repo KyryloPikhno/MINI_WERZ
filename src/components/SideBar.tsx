@@ -11,7 +11,7 @@ const SideBar:FC = () => {
     // Maybe I don't have the necessary permissions or access rights.
     // const {loading, error, data} = useQuery(USER_QUERY);
 
-    const returner = useCallbackOne(() => {
+    const returner = useCallbackOne((): void => {
         router.push({
             pathname: '/events-page',
             query: {},

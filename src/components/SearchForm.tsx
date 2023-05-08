@@ -23,7 +23,7 @@ const SearchForm:FC = () => {
 
     const router: NextRouter = useRouter();
 
-    const onSubmit: SubmitHandler<searchForm> = useCallbackOne(({name}) => {
+    const onSubmit: SubmitHandler<searchForm> = useCallbackOne(({name}): void => {
         try {
             let searchObj: SearchObject = {};
 

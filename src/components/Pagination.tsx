@@ -12,17 +12,17 @@ type SearchObject = {
 const Pagination:FC = () => {
     const router: NextRouter = useRouter();
 
-    const totalCount = 700;
+    const totalCount: number = 700;
 
-    const skip = useMemoOne(() => {
+    const skip = useMemoOne((): number => {
         return parseInt(router.query.skip as string) || 0
     }, [router.query.skip]);
 
-    const take = useMemoOne(() => {
+    const take = useMemoOne((): number => {
         return parseInt(router.query.take as string) || 9
     }, [router.query.take]);
 
-    const handlePrevious = useCallbackOne(() => {
+    const handlePrevious = useCallbackOne((): void => {
         try {
             if (skip - take >= 0) {
                 let searchObj: SearchObject = {};
@@ -44,7 +44,7 @@ const Pagination:FC = () => {
         }
     }, [router.query.name, skip, take]);
 
-    const handleNext = useCallbackOne(() => {
+    const handleNext = useCallbackOne((): void => {
         try {
             if (skip + take < totalCount) {
                 let searchObj: SearchObject = {};
@@ -66,7 +66,7 @@ const Pagination:FC = () => {
         }
     }, [router, skip, take, totalCount]);
 
-    const handleChange = useCallbackOne((e: ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = useCallbackOne((e: ChangeEvent<HTMLSelectElement>): void => {
         try {
             let searchObj: SearchObject = {};
 
@@ -91,8 +91,8 @@ const Pagination:FC = () => {
         }
     }, [router]);
 
-    useHotkeys('z', () => handlePrevious());
-    useHotkeys('x', () => handleNext());
+    useHotkeys('z', (): void => handlePrevious());
+    useHotkeys('x', (): void => handleNext());
 
     return (
         <div className="pagination">
