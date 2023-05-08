@@ -1,5 +1,5 @@
-import { useRouter, NextRouter } from 'next/router';
-import {FC, ReactNode, useEffect} from 'react';
+import {useRouter, NextRouter} from "next/router";
+import {FC, ReactNode, useEffect} from "react";
 
 interface AuthCheckerProps {
     children: ReactNode;
