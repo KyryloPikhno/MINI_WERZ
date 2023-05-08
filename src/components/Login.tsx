@@ -42,7 +42,6 @@ const Login:FC = () => {
         }
     }, [loading]);
 
-
     const onSubmit: (data: ILogin) => Promise<void> = useCallbackOne(async (loginData: ILogin) => {
         try {
             const {identifier, password} = loginData;
