@@ -1,8 +1,8 @@
 import {MemoizedSideBar} from "@/components/SideBar";
 import {client} from "@/configs/apollo-client";
 import {ApolloProvider} from "@apollo/client";
-import type { AppProps } from 'next/app'
 import {useMemoOne} from "use-memo-one";
+import type {AppProps} from 'next/app';
 import {useRouter} from "next/router";
 import '@/styles/globals.css'
 
