@@ -5,6 +5,7 @@ import {useMemoOne} from "use-memo-one";
 import type {AppProps} from 'next/app';
 import {useRouter} from "next/router";
 import '@/styles/globals.css'
+import {AuthChecker} from "@/components/AuthChecker";
 
 
 export default function App({Component, pageProps}: AppProps) {
@@ -17,7 +18,9 @@ export default function App({Component, pageProps}: AppProps) {
     return (
         <ApolloProvider client={client}>
             {!currentRoute && <MemoizedSideBar/>}
-            <Component {...pageProps} />
+            <AuthChecker>
+                <Component {...pageProps} />
+            </AuthChecker>
         </ApolloProvider>
     )
 };
