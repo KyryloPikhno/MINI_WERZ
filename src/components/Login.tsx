@@ -14,6 +14,8 @@ const Login:FC = () => {
 
     const [authError, setAuthError] = useState<string | null>(null);
 
+    const [dots, setDots] = useState<number>(0);
+
     const router: NextRouter = useRouter();
 
     const {register, watch, handleSubmit, formState: {errors, isValid}} = useForm<ILoginForm>({
@@ -27,6 +29,19 @@ const Login:FC = () => {
     useEffect(() => {
         setAuthError(null);
     }, [password, identifier]);
+
+    useEffect(() => {
+        if (loading) {
+            const intervalId = setInterval(() => {
+                setDots((dots) => (dots + 1) % 4);
+            }, 200);
+
+            return () => clearInterval(intervalId);
+        } else {
+            setDots(0);
+        }
+    }, [loading]);
+
 
     const onSubmit: (data: ILogin) => Promise<void> = useCallbackOne(async (loginData: ILogin) => {
         try {
@@ -63,7 +78,7 @@ const Login:FC = () => {
                 {error && <p>{error.message}</p>}
 
                 <button className={!isValid ? "disabled-login-button" : "login-button"} type="submit" disabled={loading || !isValid}>
-                    {loading? "Log in..." : "Log in"}
+                    {loading? `Log in${'.'.repeat(dots)}` : "Log in"}
                 </button>
             </form>
             <p className="info">© WERZ 2023, all rights reserved</p>

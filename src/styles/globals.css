@@ -8,16 +8,12 @@
   --border:#A4A5A7;
 }
 
-body {
+html,body {
   color: var(--color);
   background:var(--background);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-.container {
-
 }
 
 .username-label {
@@ -251,7 +247,6 @@ body {
   cursor: pointer;
 }
 
-
 .user{
   position: absolute;
   width: 120px;
@@ -406,21 +401,6 @@ td {
   left: 289px;
   top: 96px;
 }
-
-/*.search-form button {*/
-/* width: 20px;*/
-/*  height: 20px;*/
-/*  border:1px solid #1B1D22;*/
-/*  padding: 10px;*/
-/*  background: none;*/
-/*}*/
-/*.search-form button img {*/
-/*  width: 20px;*/
-/*  height: 20px;*/
-/*  background: #3B43FF;*/
-/*}*/
-
-
 
 .events-header{
   position: absolute;
