@@ -1,5 +1,4 @@
 import {NextRouter, useRouter} from "next/router";
-import CloseIcon from "@mui/icons-material/Close";
 import {useCallbackOne} from "use-memo-one";
 import {FC, memo, useState} from "react";
 import Link from "next/link";
@@ -37,15 +36,11 @@ const SideBar: FC = () => {
                     <img src="/imgs/Vector.png" alt="Logo"/>
                 </div>
                 <div className="links">
-                    <Link href="/events-page"
-                          className={`link ${router.pathname === "/events-page" ? 'active-link' : ''}`}
-                    >
+                    <Link href="/events-page" className={`link ${router.pathname === "/events-page" ? 'active-link' : ''}`}>
                         Events
                     </Link>
                     {router.pathname === "/events-page" && <div className="link-link">Events list</div>}
-                    <Link href="/test-page"
-                          className={`link ${router.pathname === "/test-page" ? 'active-link' : ''}`}
-                    >
+                    <Link href="/test-page" className={`link ${router.pathname === "/test-page" ? 'active-link' : ''}`}>
                         Test
                     </Link>
                 </div>
