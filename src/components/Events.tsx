@@ -42,7 +42,6 @@ const Events:FC = () => {
             <h1 className="events-header">Events List</h1>
             <SearchForm/>
             <div className="table-container">
-
             <table className="table">
                 <thead >
                 <tr className="head">

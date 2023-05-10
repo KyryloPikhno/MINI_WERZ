@@ -9,7 +9,7 @@ type SearchObject = {
     skip?: number;
 };
 
-const Pagination:FC = () => {
+const Pagination: FC = () => {
     const router: NextRouter = useRouter();
 
     const totalCount: number = 700;

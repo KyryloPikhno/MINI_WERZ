@@ -27,7 +27,7 @@ const SideBar: FC = () => {
 
     return (
         <>
-            <button className={`open-button ${sidebarOpen && "work" }`}  onClick={toggleSidebar}>
+            <button className={`open-button ${sidebarOpen && "work"}`} onClick={toggleSidebar}>
                 <span></span>
                 <span></span>
                 <span></span>
