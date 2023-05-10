@@ -9,7 +9,7 @@ import {useMutation} from "@apollo/client";
 import {useForm} from "react-hook-form";
 
 
-const Login:FC = () => {
+const Login: FC = () => {
     const [login, {loading, error}] = useMutation(LOGIN_MUTATION);
 
     const [authError, setAuthError] = useState<string | null>(null);
@@ -59,30 +59,38 @@ const Login:FC = () => {
     }, [login, router]);
 
     return (
-        <div>
+        <div className="login-container">
             <img className="logoWERZ" src="/imgs/Logo.png" alt="logo"/>
             <h1 className="login-header">Login</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label className="username-label">Username</label>
-                <div className="ellipse-username"></div>
-                <input className="username-field" type="text" placeholder="Enter username..." {...register("identifier")}/>
-                {errors.identifier && <p className="error-username">{errors.identifier.message}</p>}
+            <form className="form" onSubmit={handleSubmit(onSubmit)}>
+                <div className="username-box">
+                    <div className="label-box">
+                        <label className="label">Username</label>
+                        <div className="ellipse"></div>
+                    </div>
+                    <input className="field" type="text" placeholder="Enter username..." {...register("identifier")}/>
+                     <p className="auth-error">{ errors.identifier && errors.identifier.message}</p>
+                </div>
 
-                <label className="password-label">Password</label>
-                <div className="ellipse-password"></div>
-                <input className="password-field" type="password" placeholder="Enter password..." {...register("password")}/>
-                {errors.password && <p className="error-password">{errors.password.message}</p>}
+                <div className="password-box">
+                    <div className="label-box">
+                        <label className="label">Password</label>
+                        <div className="ellipse"></div>
+                    </div>
+                    <input className="field" type="password" placeholder="Enter password..." {...register("password")}/>
+                    <p className="auth-error">{errors.password && errors.password.message}</p>
 
-                {authError && <p className="error">{authError}</p>}
-                {error && <p>{error.message}</p>}
+                     <p className="auth-error">{authError && authError}</p>
+                     <p className="auth-error">{error && error.message}</p>
+                </div>
 
                 <button className={!isValid ? "disabled-login-button" : "login-button"} type="submit" disabled={loading || !isValid}>
-                    {loading? `Log in${'.'.repeat(dots)}` : "Log in"}
+                    {loading ? `Log in${'.'.repeat(dots)}` : "Log in"}
                 </button>
             </form>
             <p className="info">© WERZ 2023, all rights reserved</p>
         </div>
     );
-}
+};
 
 export {Login};

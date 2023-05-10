@@ -1,156 +1,162 @@
-/*.username-label {*/
-/*    width: 67px;*/
-/*    height: 14px;*/
-/*    position: absolute;*/
-/*    left: 239px;*/
-/*    top: 337px;*/
-/*    font-weight: 500;*/
-/*    font-size: 14px;*/
-/*    line-height: 14px;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    color: #1B1D22;*/
-/*}*/
+.login-container {
+    padding-left: 20%;
+}
 
-/*.password-label {*/
-/*    width: 28px;*/
-/*    height: 14px;*/
-/*    position: absolute;*/
-/*    left: 239px;*/
-/*    top: 424px;*/
-/*    font-style: normal;*/
-/*    font-weight: 500;*/
-/*    font-size: 14px;*/
-/*    line-height: 14px;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    color: #1B1D22;*/
-/*}*/
+.logoWERZ {
+    margin-top: 40px;
+    height: 20px;
+    width: 84px;
+}
 
-/*.username-field ,.password-field{*/
-/*    width: 370px;*/
-/*    height: 40px;*/
-/*    box-sizing: border-box;*/
-/*    position: absolute;*/
-/*    left: 239px;*/
-/*    top: 359px;*/
-/*    background: var(--background);*/
-/*    border: 1px solid var(--border);*/
-/*}*/
+.login-header {
+    width: 62px;
+    height: 24px;
+    font-weight: 500;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    color: var(--black);
+    margin-top: 213px;
+}
 
-/*.password-field{*/
-/*    top: 446px;*/
-/*}*/
+.username-box,.password-box {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
-/*.password-field,.username-field{*/
-/*    padding-left: 20px;*/
-/*}*/
+.password-box{
+    margin-top: 15px;
+}
 
-/*.login-button,.disabled-login-button{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    align-items: center;*/
-/*    padding: 21px 24px;*/
-/*    gap: 10px;*/
-/*    position: absolute;*/
-/*    width: 241px;*/
-/*    height: 48px;*/
-/*    left: 239px;*/
-/*    top: 547px;*/
-/*    background: #1B1D22;*/
-/*    color:#FFFFFF;*/
-/*    transition: .6s;*/
-/*}*/
+.label-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
-/*.disabled-login-button{*/
-/*    background: var(--border);*/
-/*    transition: .6s;*/
-/*}*/
 
-/*.login-header{*/
-/*    position: absolute;*/
-/*    width: 62px;*/
-/*    height: 24px;*/
-/*    left: 239px;*/
-/*    top: 273px;*/
-/*    font-style: normal;*/
-/*    font-weight: 500;*/
-/*    font-size: 24px;*/
-/*    line-height: 24px;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    color: #1B1D22;*/
-/*}*/
+.label {
+    width: 67px;
+    height: 14px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    color: var(--black);
+}
 
-/*.info {*/
-/*    position: absolute;*/
-/*    width: 209px;*/
-/*    height: 14px;*/
-/*    right: 56px;*/
-/*    bottom: 40px;*/
-/*    font-style: normal;*/
-/*    font-weight: 400;*/
-/*    font-size: 14px;*/
-/*    line-height: 14px;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    text-align: right;*/
-/*    color: #A4A5A7;*/
-/*}*/
+.field {
+    width: 370px;
+    height: 40px;
+    box-sizing: border-box;
+    background: var(--white);
+    border: 1px solid var(--white);
+    padding-left: 20px;
 
-/*.ellipse-username, .ellipse-password {*/
-/*    width: 4px;*/
-/*    height: 4px;*/
-/*    position: absolute;*/
-/*    top: 342px;*/
-/*    left: 310px;*/
-/*    border-radius: 50px;*/
-/*    background: #FF1C5E;*/
-/*    flex: none;*/
-/*    order: 1;*/
-/*    flex-grow: 0;*/
-/*}*/
+}
 
-/*.ellipse-password {*/
-/*    top: 429px;*/
-/*    left: 308px;;*/
-/*}*/
+.login-button,.disabled-login-button{
+    margin-top: 41px;
+    display: flex;
+    align-items: center;
+    padding: 21px 24px;
+    width: 241px;
+    height: 48px;
+    background: var(--black);
+    color:#FFFFFF;
+    transition: .6s;
+}
 
-/*.error-username, .error-password,.error,.error-search{*/
-/*    font-size: 10px;*/
-/*    position: absolute;*/
-/*    left: 239px;*/
-/*    top: 400px;*/
-/*    font-style: normal;*/
-/*    font-weight: 500;*/
-/*    line-height: 14px;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    color: red;*/
-/*    flex: none;*/
-/*    order: 0;*/
-/*    flex-grow: 0;*/
-/*}*/
+.disabled-login-button{
+    background: var(--gray);
+    transition: .6s;
+}
 
-/*.error-password{*/
-/*    top: 487px;*/
-/*}*/
+.info {
+    position: absolute;
+    right: 56px;
+    bottom: 40px;
+    width: 209px;
+    height: 14px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    color: var(--gray);
+}
 
-/*.error{*/
-/*    top: 497px;*/
-/*    width: 400px;*/
-/*}*/
+.ellipse {
+    border-radius: 50px;
+    background: var(--red);
+    height: 4px;
+    width: 4px;
+}
 
-/*.error-search {*/
-/*    top: 20px;*/
-/*    left: 0;*/
-/*    width: 400px;*/
-/*}*/
 
-/*.logoWERZ{*/
-/*    position: absolute;*/
-/*    width: 84px;*/
-/*    height: 20px;*/
-/*    left: 239px;*/
-/*    top: 40px;*/
-/*}*/
+.auth-error {
+    height: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+    width: 400px;
+    color: var(--red);
+}
+
+
+@media screen and (max-width: 700px) {
+    .login-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .username-box,.password-box {
+        width: 300px;
+    }
+
+    .field {
+        width: 100%;
+        height: 40px;
+        box-sizing: border-box;
+        background: var(--white);
+        border: 1px solid var(--gray);
+        padding-left: 20px;
+    }
+
+
+    .info {
+        position: sticky;
+        margin-top: 170px;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-button,.disabled-login-button {
+        justify-content: center;
+    }
+
+    .disabled-login-button {
+        background: var(--gray);
+    }
+}
+
+
+
+
+
+
+
+
+
