@@ -3,18 +3,15 @@
 @tailwind base;
 
 :root {
-  --background: #FFFFFF;
-  --border: #A4A5A7;
-  --color: #1B1D22;
+  --white: #FFFFFF;
   --black: #1B1D22;
   --gray: #A4A5A7;
-  --white: #FFFFFF;
-  --red: #FF1C5E
+  --red: #FF1C5E;
 }
 
 html,body {
   font-family: 'Helvetica Neue', serif;
-  background:var(--background);
+  background: var(--white);
   box-sizing: border-box;
   color: var(--black);
   padding: 0;

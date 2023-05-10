@@ -54,7 +54,7 @@ const SearchForm:FC = () => {
                 &#128269;
             </button>
             <input type="text" placeholder="Search" {...register("name")}/>
-            {errors.name && <p className="error-search">{errors.name.message}</p>}
+            <p className="search-error">{errors.name && errors.name.message}</p>
         </form>
     );
 }

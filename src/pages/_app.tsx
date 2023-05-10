@@ -18,7 +18,7 @@ export default function App({Component, pageProps}: AppProps) {
 
     const currentRoute = useMemoOne(() => {
         return pathname === "/login-page";
-    }, [pathname])
+    }, [pathname]);
 
     return (
         <ApolloProvider client={client}>

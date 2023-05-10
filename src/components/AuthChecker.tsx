@@ -13,7 +13,7 @@ const AuthChecker: FC<AuthCheckerProps> = ({ children }: AuthCheckerProps): JSX.
         if (!token) {
             router.push("/login-page");
         }
-    }, [router]);
+    }, []);
 
     return <>{children}</>;
 };

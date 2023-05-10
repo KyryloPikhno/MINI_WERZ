@@ -105,10 +105,10 @@ const Pagination:FC = () => {
                 </select>
             </div>
             <p className="showing">{`Showing ${skip + 1}-${Math.min(skip + take, totalCount)} of ${totalCount}`}</p>
+            <div className="page">{Math.floor(skip / take) + 1}</div>
             <button className="prev" onClick={handlePrevious} disabled={skip === 0}>
                 &#8592;
             </button>
-            <div className="page">{Math.floor(skip / take) + 1}</div>
             <button className="next" onClick={handleNext} disabled={skip + take >= totalCount}>
                 &#8594;
             </button>

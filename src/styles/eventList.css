@@ -1,79 +1,86 @@
-.table{
-    position: absolute;
-    left: 290px;
-    top: 135px;
+.events-container {
+    padding-left: 20%;
+    margin-bottom: 70px;
+    margin-top: 24px;
 }
 
-.head{
-    width: 1207px;
+.table-container {
+    overflow-x: auto
+}
+
+.events-header {
+    width: 157px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 32px;
+    color: var(--black);
+    margin-top: 25px;
+    margin-left: 5px;
+    position: sticky;
+}
+
+.table {
+    width: 1160px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+th, td {
+    padding-left: 6px;
+}
+
+.event,.date,.gross,.venue,.sold,.gross,.action,.status {
+    width: 120px;
     height: 46px;
-}
-
-.th-event{
-    width: 224px;
-    margin: 0 4px;
-}
-
-.th-date {
-    width: 232px;
-    padding-right: 10px;
-    margin: 0 4px;
-}
-
-.td-event{
-    display: flex;
-    gap: 8px;
-}
-
-td{
-    overflow: scroll;
-    height: 65px;
-}
-
-.th-venue{
-    width: 112px;
-    margin: 0 4px;
-}
-
-.th-sold{
-    width: 112px;
-    margin: 0 4px;
-}
-
-.th-cross{
-    width: 112px;
-    margin: 0 4px;
-}
-
-.th-status{
-    width: 112px;
-    margin: 0 4px;
-}
-
-.th-action{
-    width: 105px;
-    margin: 0 4px;
-}
-
-
-.td-event div{
-    width: 113px;
-    display: flex;
-    align-items: center;
-}
-
-th {
     text-align: left;
-    width: 104px;
-    height: 44px;
-    font-family: 'Helvetica Neue', serif;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 12px;
     color: #A4A5A7;
     padding-right: 10px;
+}
+
+.td-event,.td-date,.td-gross,.td-venue,.td-sold,.td-gross,.td-action,.td-status {
+    font-size: 14px;
+    height: 64px;
+}
+
+.td-event {
+    display: flex;
+    gap: 5px;
+}
+
+.td-event div {
+    width: 113px;
+    display: flex;
+    align-items: center;
+}
+
+.date {
+    width: 238px;
+}
+
+.event,.td-event {
+    width: 238px;
+}
+
+.action {
+    text-align: right;
+}
+
+.td-action {
     position: relative;
+}
+
+.points {
+    width: 3px;
+    height: 3px;
+    right: 10px;
+    top: 25px;
+    position: absolute;
+    transform: rotate(90deg);
+    cursor: pointer;
 }
 
 .triangle {
@@ -88,39 +95,20 @@ th {
     vertical-align: bottom;
 }
 
-.iconUrl,.iconUrlVector{
+.iconUrl,.iconUrlVector {
     width: 113px;
     height: 64px;
     object-fit: cover;
-    border: 1px solid #1B1D22;
+    border: 1px solid var(--black);
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 1;
 }
 
-.iconUrlVector{
-    object-fit:none;
+.iconUrlVector {
+    object-fit: none;
     background: #F4F4F4;
-}
-
-td {
-    margin-bottom: 12px;
-}
-
-.events-header{
-    position: absolute;
-    width: 157px;
-    height: 32px;
-    left: 286px;
-    top: 20px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 32px;
-    display: flex;
-    align-items: center;
-    color: #1B1D22;
 }
 
 .active,.draft,.past {
@@ -131,45 +119,34 @@ td {
     gap: 10px;
     width: 73px;
     height: 30px;
-    background: #FFFFFF;
+    background: var(--white);
     border: 1px solid #38FF64;
     color: #38FF64;
 }
 
-.draft{
+.draft {
     border: 1px solid #FF550C;
     color: #FF550C;
 }
 
-.past{
+.past {
     border: 1px solid #3B43FF;
     color: #3B43FF;
 }
 
-.action{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 45px;
-    width: 3px;
-    height: 3px;
-    transform: rotate(90deg);
-    cursor: pointer;
-}
-
-.box{
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:150px ;
+    margin-top: 150px;
     width: 100%;
 }
 
-.loader{
+.loader {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border:5px dashed #82C6DD;
+    border: 5px dashed #82C6DD;
     animation: rotate 1s infinite linear;
 }
 
@@ -181,3 +158,27 @@ td {
         transform: rotate(360deg);
     }
 }
+
+@media screen and (max-width: 800px) {
+    .events-container {
+        padding-left: 0;
+    }
+
+    table {
+        overflow-block: auto;
+        overflow-x: auto;
+        display: block;
+    }
+
+    th:first-child,
+    td:first-child {
+        position: sticky;
+        left: 0;
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #fff;
+    }
+}
+

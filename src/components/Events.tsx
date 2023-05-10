@@ -38,23 +38,26 @@ const Events:FC = () => {
     }
 
     return (
-        <div>
+        <div className="events-container">
             <h1 className="events-header">Events List</h1>
             <SearchForm/>
+            <div className="table-container">
+
             <table className="table">
                 <thead >
                 <tr className="head">
-                    <th className="th-event">Event <div className="triangle"></div></th>
-                    <th className="th-date">Date <div className="triangle"></div></th>
-                    <th className="th-venue">Venue <div className="triangle"></div></th>
-                    <th className="th-sold">Tickets sold <div className="triangle"></div></th>
-                    <th className="th-cross">Gross revenue <div className="triangle"></div></th>
-                    <th className="th-status">Status <div className="triangle"></div></th>
-                    <th className="th-action">Action</th>
+                    <th className="event">Event <span className="triangle"></span></th>
+                    <th className="date">Date <span className="triangle"></span></th>
+                    <th className="venue">Venue <span className="triangle"></span></th>
+                    <th className="sold">Tickets sold <span className="triangle"></span></th>
+                    <th className="gross">Gross revenue <span className="triangle"></span></th>
+                    <th className="status">Status <span className="triangle"></span></th>
+                    <th className="action">Action</th>
                 </tr>
                 </thead>
                 {data?.events && data.events.map((event: IEvent, index: number) => <MemoizedEvent key={index} event={event}/>)}
             </table>
+            </div>
             <Pagination/>
         </div>
     );
