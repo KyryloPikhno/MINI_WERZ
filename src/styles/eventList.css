@@ -171,7 +171,7 @@ th, td {
 
     th:first-child,
     td:first-child {
-        position: sticky;
+        position: fixed;
         left: 0;
         background-color: #f2f2f2;
     }
