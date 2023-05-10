@@ -1,0 +1,73 @@
+.pagination{
+    width: 100vw;
+    height: 64px;
+    background: var(--background);
+    position: fixed;
+    bottom: 0;
+}
+
+.rows{
+    position: fixed;
+    width: 222px;
+    height: 14px;
+    left: 271px;
+    bottom: 25px;
+    font-family: 'Helvetica Neue', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    color: #1B1D22;
+}
+
+.prev,.next{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    right: 101px;
+    bottom: 16px;
+    border: 1px solid #A4A5A7;
+}
+
+.next{
+    right: 61px;
+}
+
+.showing{
+    position: fixed;
+    width: 160px;
+    height: 14px;
+    right: 197px;
+    bottom: 26px;
+    font-family: 'Helvetica Neue', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #1B1D22;
+}
+
+.page{
+    position: absolute;
+    width: 8px;
+    height: 14px;
+    bottom: 26px;
+    right: 157px;
+    font-family: 'Helvetica Neue', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #A4A5A7;
+}

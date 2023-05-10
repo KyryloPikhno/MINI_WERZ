@@ -1,0 +1,90 @@
+.sidebar{
+    position: fixed;
+    width: 143px;
+    height: 796px;
+    left: 48px;
+    top: 16px;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65px;
+}
+
+.link-link{
+    width: 67px;
+    height: 14px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: #1B1D22;
+}
+
+.link{
+    width: 140px;
+    padding-left: 8px;
+    height: 14px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    color: #1B1D22;
+}
+
+.active-link{
+    border-left: 1.5px solid black;
+}
+
+.logo{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #82C6DD;
+    border-radius: 1000px;
+    left: 6px;
+    top:  6px;
+    cursor: pointer;
+}
+
+.user{
+    position: absolute;
+    width: 120px;
+    height: 14px;
+    left: 47px;
+    bottom: -20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #1B1D22;
+}
+
+.user-later{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 8px;
+    bottom: -27px;
+    background: #FFFFFF;
+    border: 1px solid #1B1D22;
+}
