@@ -165,7 +165,6 @@ th, td {
     }
 
     table {
-        overflow-block: auto;
         overflow-x: auto;
         display: block;
     }
