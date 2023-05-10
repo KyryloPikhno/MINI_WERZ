@@ -169,9 +169,15 @@ th, td {
         display: block;
     }
 
+    th:first-child {
+        padding-left: 10px;
+        padding-top: 15px;
+    }
+
     th:first-child,
     td:first-child {
-        position: sticky;
+        width: 250px;
+        position: absolute;
         left: 0;
         background-color: #f2f2f2;
     }
