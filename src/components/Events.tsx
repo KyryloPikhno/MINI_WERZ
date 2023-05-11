@@ -13,15 +13,15 @@ const Events:FC = () => {
     const router: NextRouter = useRouter();
 
     const name: string = useMemoOne(() => {
-        return router.query.name as string || ""
+        return router.query.name as string || "";
     }, [router.query.name]);
 
     const skip: number = useMemoOne(() => {
-        return parseInt(router.query.skip as string) || 0
+        return parseInt(router.query.skip as string) || 0;
     }, [router.query.skip]);
 
     const take: number = useMemoOne(() => {
-        return parseInt(router.query.take as string) || 9
+        return parseInt(router.query.take as string) || 9;
     }, [router.query.take]);
 
     const {loading, error, data} = useQuery(EVENTS_QUERY, {
@@ -57,7 +57,7 @@ const Events:FC = () => {
                 {data?.events && data.events.map((event: IEvent, index: number) => <MemoizedEvent key={index} event={event}/>)}
             </table>
             </div>
-            <Pagination/>
+            {data?.events.length >= 9 && <Pagination/>}
         </div>
     );
 }
