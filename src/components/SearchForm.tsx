@@ -31,14 +31,6 @@ const SearchForm:FC = () => {
                 searchObj.name = name;
             }
 
-            if (router.query.take) {
-                searchObj.take = Number(router.query.take);
-            }
-
-            if (router.query.skip) {
-                searchObj.skip = Number(router.query.skip);
-            }
-
             router.push({
                 pathname: '/events-page',
                 query: searchObj,
